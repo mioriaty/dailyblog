@@ -1,9 +1,13 @@
-import { Button } from '@/presentation/components/ui/button';
-import Link from 'next/link';
-import { SiGithub } from 'react-icons/si';
+"use client";
 
+import LoginForm from '@/presentation/components/login-form';
+import UserProfile from '@/presentation/components/user-profile';
+import { useUserStore } from '@/stores/user.store';
+import Link from 'next/link';
 
 export default function Navbar() {
+  const user = useUserStore(state => state.user);
+
   return (
     <nav className="flex items-center justify-between">
       <div className="group">
@@ -13,10 +17,7 @@ export default function Navbar() {
         <div className="h-[1px] w-0 group-hover:w-full transition-all bg-gray-700"></div>
       </div>
 
-      <Button variant="default" className='flex items-center gap-2'>
-        <SiGithub />
-        Login
-      </Button>
+      {user ? <UserProfile /> : <LoginForm />}
     </nav>
   );
 }
