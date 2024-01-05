@@ -1,0 +1,1 @@
+# This folder contains the implementations referring to the HTTP protocol and the cache, it is also the only place where you will have access to external dependencies related to these two items mentioned. This folder also contains most of the external libraries

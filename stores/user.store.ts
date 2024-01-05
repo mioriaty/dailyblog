@@ -13,3 +13,7 @@ export const useUserStore = create<UserState>()(set => ({
       user,
     }),
 }));
+
+useUserStore.subscribe((state) => {
+  console.log('User state changed:', state)
+})

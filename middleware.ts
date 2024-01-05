@@ -55,19 +55,22 @@ export async function middleware(request: NextRequest) {
   );
 
   const { data } = await supabase.auth.getSession();
-  console.log({ data });
+
+  // If the user is not logged in, redirect to login page
+  const homePageUrl = new URL('/', request.url);
+
+  if (data.session) {
+    // If the user is not an admin, redirect to home page
+    if (data.session.user.user_metadata.role !== 'admin') {
+      return NextResponse.redirect(homePageUrl);
+    }
+  } else {
+    return NextResponse.redirect(homePageUrl);
+  }
+
   return response;
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
-     */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
-  ],
+  matcher: ['/dashboard/:path'],
 };
