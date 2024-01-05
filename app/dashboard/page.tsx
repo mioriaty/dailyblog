@@ -1,8 +1,22 @@
+import BlogTable from '@/app/dashboard/components/blog-table';
+import { Button } from '@/presentation/components/ui/button';
+import { PlusIcon } from '@radix-ui/react-icons';
+import Link from 'next/link';
 
 export default function Dashboard() {
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className="space-y-5">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Blogs</h1>
+        <Link href={'/dashboard/blog/create'}>
+          <Button variant={'outline'} className="flex items-center gap-1">
+            Create
+            <PlusIcon />
+          </Button>
+        </Link>
+      </div>
+
+      <BlogTable />
     </div>
-  )
+  );
 }

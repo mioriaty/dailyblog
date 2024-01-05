@@ -36,8 +36,8 @@ function NavLinks() {
             href={link.href}
             key={link.href}
             className={cn(
-              'flex items-center gap-[2px] hover:underline transition-all',
-              pathName === link.href && 'text-blue-500 underline',
+              'flex items-center gap-[2px] hover:text-blue-500 transition-all',
+              pathName === link.href && 'text-blue-500',
             )}
           >
             {link.Icon}
