@@ -1,4 +1,5 @@
 import Navbar from '@/presentation/components/navbar';
+import { Toaster } from '@/presentation/components/ui/toaster';
 import '@/presentation/lib/styles/globals.css';
 import SessionProvider from '@/presentation/providers/session-provider';
 import { ThemeProvider } from '@/presentation/providers/theme-provider';
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {children}
             </main>
           </SessionProvider>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

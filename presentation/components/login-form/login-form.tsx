@@ -8,8 +8,10 @@ import { SiGithub } from 'react-icons/si';
 export default function LoginForm() {
   const pathName = usePathname();
 
-  const handleLogin = () => {
-    supabaseClient.auth.signInWithOAuth({
+  const handleLogin = async () => {
+    console.log('login...');
+
+    await supabaseClient.auth.signInWithOAuth({
       provider: 'github',
       options: {
         redirectTo: location.origin + '/auth/callback?next=' + pathName,

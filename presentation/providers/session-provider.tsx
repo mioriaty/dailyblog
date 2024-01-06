@@ -1,7 +1,7 @@
 'use client';
 
+import { supabaseClient } from '@/presentation/utils/createSupabaseClient';
 import { useUserStore } from '@/stores/user.store';
-import { createBrowserClient } from '@supabase/ssr';
 import { useEffect } from 'react';
 
 interface SessionProviderProps {
@@ -9,15 +9,10 @@ interface SessionProviderProps {
 }
 
 export default function SessionProvider({ children }: SessionProviderProps) {
-  const supabase = createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  );
-
   const setUser = useUserStore(state => state.setUser);
 
   const readUserSession = async () => {
-    const { data } = await supabase.auth.getSession();
+    const { data } = await supabaseClient.auth.getSession();
     setUser(data.session?.user);
   };
 
