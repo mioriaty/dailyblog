@@ -1,8 +1,8 @@
 'use client';
 
+import { supabaseClient } from '@/infrastructure/supabase/connectSupabaseClient';
 import { Button } from '@/presentation/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/presentation/components/ui/popover';
-import { supabaseClient } from '@/presentation/utils/createSupabaseClient';
 import { useUserStore } from '@/stores/user.store';
 import { DashboardIcon, LockOpen1Icon } from '@radix-ui/react-icons';
 import Image from 'next/image';

@@ -1,7 +1,8 @@
 'use client';
 
+import { supabaseClient } from '@/infrastructure/supabase/connectSupabaseClient';
 import { Button } from '@/presentation/components/ui/button';
-import { supabaseClient } from '@/presentation/utils/createSupabaseClient';
+
 import { usePathname } from 'next/navigation';
 import { SiGithub } from 'react-icons/si';
 

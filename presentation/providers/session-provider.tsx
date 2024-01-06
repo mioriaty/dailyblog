@@ -1,6 +1,6 @@
 'use client';
 
-import { supabaseClient } from '@/presentation/utils/createSupabaseClient';
+import { supabaseClient } from '@/infrastructure/supabase/connectSupabaseClient';
 import { useUserStore } from '@/stores/user.store';
 import { useEffect } from 'react';
 

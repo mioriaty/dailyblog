@@ -1,0 +1,12 @@
+- Login with Github (using Supabase)
+  + Implement/Config Supabase
+
+- UI based by role
+
+- CRUD Blog
+  + Create Blog
+  + Update Blog
+  + Delete Blog
+  + Read Blog(s)
+
+
