@@ -4,11 +4,7 @@ import { supabaseClient } from '@/infrastructure/supabase/connectSupabaseClient'
 import { useUserStore } from '@/stores/user.store';
 import { useEffect } from 'react';
 
-interface SessionProviderProps {
-  children: React.ReactNode;
-}
-
-export default function SessionProvider({ children }: SessionProviderProps) {
+export default function SessionProvider() {
   const setUser = useUserStore(state => state.setUser);
 
   const readUserSession = async () => {
@@ -22,5 +18,5 @@ export default function SessionProvider({ children }: SessionProviderProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return children;
+  return <></>;
 }

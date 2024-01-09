@@ -10,8 +10,6 @@ export default function LoginForm() {
   const pathName = usePathname();
 
   const handleLogin = async () => {
-    console.log('login...');
-
     await supabaseClient.auth.signInWithOAuth({
       provider: 'github',
       options: {

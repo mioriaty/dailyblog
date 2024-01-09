@@ -21,14 +21,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <SessionProvider>
-            <main className="max-w-7xl mx-auto p-10 space-y-10">
-              <Navbar />
-              {children}
-            </main>
-          </SessionProvider>
+          <main className="max-w-7xl mx-auto p-5 space-y-10 lg:p-10">
+            <Navbar />
+            {children}
+          </main>
           <Toaster />
         </ThemeProvider>
+        <SessionProvider />
       </body>
     </html>
   );
